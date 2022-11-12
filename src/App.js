@@ -1,12 +1,16 @@
 
-import { Grid } from '@mui/material';
-import Store from './Components/Store/Store';
+
 //context
-import {ProductContextProvider} from './Context/ProductContextProvider';
+import { ProductContextProvider } from './Context/ProductContextProvider';
+
+//router
+import { RouterProvider } from "react-router-dom";
+import router from './router/router'
+
 function App() {
   return (
     <ProductContextProvider>
-      <Store />
+        <RouterProvider router={router} />
     </ProductContextProvider>
   );
 }

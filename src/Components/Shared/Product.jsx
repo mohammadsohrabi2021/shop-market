@@ -1,7 +1,7 @@
 import { Button, Grid, Typography } from '@mui/material';
 import React from 'react';
 //Function
-import { Shorten } from '../Helper/Shorten';
+import { Shorten } from '../../Helper/Shorten';
 const Product = ({ productData}) => {
     return (
         <Grid>
@@ -17,7 +17,7 @@ const Product = ({ productData}) => {
                     Details
                 </Typography>
                 <Grid>
-                    <Button>Add to Cart</Button>
+                    <Button variant='outlined'>Add to Cart</Button>
                 </Grid>
             </Grid>
         </Grid>
