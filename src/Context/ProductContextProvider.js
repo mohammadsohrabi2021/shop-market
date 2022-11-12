@@ -1,10 +1,10 @@
 import React, { createContext, useEffect, useState } from 'react';
 // Api
-import getProducts from '../Services/Api';
+import { getProducts } from '../Services/Api';
 
-const ProductContext = createContext()
+export const ProductsContext = createContext()
 
-const ProductContextProvider = (props) => {
+const ProductContextProvider = ({ children }) => {
     const [products, setProducts] = useState([])
     useEffect(() => {
         const fetchAPI = async () => {
@@ -15,10 +15,10 @@ const ProductContextProvider = (props) => {
     }, [])
 
     return (
-        <ProductContextProvider.Provider value={products}>
-            {props.children}
-        </ProductContextProvider.Provider>
+        <ProductsContext.Provider value={products}>
+            {children}
+        </ProductsContext.Provider>
     );
 };
 
-export default ProductContextProvider;
+export { ProductContextProvider };
