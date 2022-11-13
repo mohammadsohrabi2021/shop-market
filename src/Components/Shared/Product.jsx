@@ -1,21 +1,26 @@
 import { Button, Grid, Typography } from '@mui/material';
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 //Function
 import { Shorten } from '../../Helper/Shorten';
-const Product = ({ productData}) => {
+
+const Product = ({ productData }) => {
     return (
         <Grid>
-            <img src={productData.image} alte="product" width={'200px'}/>
+            <img src={productData.image} alte="product" width={'200px'} />
             <Typography>
                 {Shorten(productData.title)}
             </Typography>
             <Typography>
-               { productData.price}
+                {productData.price}
             </Typography>
             <Grid>
-                <Typography>
-                    Details
-                </Typography>
+                <Link to={`/products/${productData.id}`}>
+                    <Typography>
+                        Details
+                    </Typography>
+                </Link>
                 <Grid>
                     <Button variant='outlined'>Add to Cart</Button>
                 </Grid>
