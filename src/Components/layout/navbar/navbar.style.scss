@@ -1,0 +1,22 @@
+@import "../../../styles/variable.scss";
+.Navbar {
+  background-color: $primaryColor;
+  a {
+    color: $textSecondary;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  ul {
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    list-style: none;
+  }
+  .Navbar__content {
+    display: flex;
+    justify-content: space-between;
+    li {
+      position: relative;
+    }
+  }
+}
