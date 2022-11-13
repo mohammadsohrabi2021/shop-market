@@ -1,17 +1,13 @@
-import { Container } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 import React from "react";
-// import "./footer.style.scss";
+import "./footerStyle.css";
 
 
 const Footer = () => {
   return (
-    <footer className="Footer">
+    <footer className='container'>
       <Container>
-        <h1>{"یه متن گنده با اشاره به ارتباط با ما"}</h1>
-        <div>یه متن گنده با اشاره به ارتباط با ما</div>
-        <div>یه متن گنده با اشاره به ارتباط با ما</div>
-        <div>یه متن گنده با اشاره به ارتباط با ما</div>
-        <div>یه متن گنده با اشاره به ارتباط با ما</div>
+        <p>&copy; All Rights Reserved 2022</p>
       </Container>
     </footer>
   );
