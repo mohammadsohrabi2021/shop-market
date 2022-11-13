@@ -1,0 +1,131 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 150px 150px 50px;
+  padding: 20px;
+  border: 1px solid silver;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.image {
+  width: 450px;
+}
+
+.textContainer {
+  text-align: left;
+  margin-left: 30px;
+  padding: 20px;
+  border: 1px solid silver;
+  border-radius: 10px;
+}
+
+.textContainer h3 {
+  color: #1a73e8;
+  margin: 20px 0 30px;
+}
+
+.description {
+  color: rgb(62, 62, 62);
+  margin-bottom: 30px;
+}
+
+.category {
+  color: rgb(62, 62, 62);
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+.category span {
+  color: orange;
+  font-size: 1rem;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  display: inline-block;
+  background: #34a853;
+  padding: 7px 16px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
+    rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px,
+    rgba(0, 0, 0, 0.07) 0px 9px 16px;
+}
+
+.buttonContainer a {
+  text-decoration: none;
+  display: inline-block;
+  background: #1a73e8;
+  padding: 7px 16px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  transition: all 0.2s ease;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
+    rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px,
+    rgba(0, 0, 0, 0.07) 0px 9px 16px;
+}
+
+.buttonContainer a:hover {
+  background-color: #0b499b;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    margin: 120px 80px 50px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .image {
+    width: 170px;
+    margin-bottom: 50px;
+  }
+  .textContainer {
+    margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin: 120px 40px 50px;
+    justify-content: center;
+  }
+  .textContainer {
+    margin: 0;
+  }
+}
+
+@media (max-width: 555px) {
+  .container {
+    margin: 120px 20px 50px;
+    justify-content: center;
+  }
+  .textContainer {
+    margin: 0;
+  }
+}
+
+@media (max-width: 370px) {
+  .buttonContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .price {
+    margin-bottom: 40px;
+  }
+}

@@ -9,30 +9,35 @@ import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
 import { Shorten, isInCart, quantityCount } from '../../Helper/Shorten';
 
 // context
-import { CartContext } from '../../Context/CartContextProvider'
+import { CartContext } from '../../Context/CartContextProvider';
+
+// Style
+import styles from "./Product.module.css";
+
 const Product = ({ productData }) => {
     const { state, dispatch } = useContext(CartContext)
     return (
-        <Grid>
-            <img src={productData.image} alte="product" width={'200px'} />
+        <Grid className={styles.container}>
+            <img className={styles.cardImage} src={productData.image} alte="product" width={'200px'} />
             <Typography>
                 {Shorten(productData.title)}
             </Typography>
             <Typography>
                 {productData.price}
             </Typography>
-            <Grid>
+            <Grid className={styles.linkContainer}>
                 <Link to={`/products/${productData.id}`}>
                     <Typography>
                         Details
                     </Typography>
                 </Link>
-                <Grid>
-                    {quantityCount(state,productData.id) >1 && <Button variant='outlined' onClick={() => dispatch({ type: 'DECREASE', payload: productData })}><HorizontalRuleIcon/></Button>}
-                    {quantityCount(state,productData.id) === 1 && <Button variant='outlined' onClick={() => dispatch({ type: 'REMOVE_ITEM', payload: productData })}><DeleteIcon/></Button>}
+                <Grid  className={styles.buttonContainer}>
+                    {quantityCount(state, productData.id) > 1 && <Button className={styles.smallButton} onClick={() => dispatch({ type: 'DECREASE', payload: productData })}><HorizontalRuleIcon /></Button>}
+                    {quantityCount(state, productData.id) === 1 && <Button className={styles.smallButton} onClick={() => dispatch({ type: 'REMOVE_ITEM', payload: productData })}><DeleteIcon /></Button>}
+                    {quantityCount(state, productData.id) > 0 && <Typography className={styles.counter}>{quantityCount(state, productData.id)}</Typography>}
                     {
                         isInCart(state, productData.id) ?
-                            <Button variant='outlined' onClick={() => dispatch({ type: "INCREASE", payload: productData })}><AddIcon/></Button> :
+                            <Button className={styles.smallButton} onClick={() => dispatch({ type: "INCREASE", payload: productData })}><AddIcon /></Button> :
                             <Button variant='outlined' onClick={() => dispatch({ type: "ADD_ITEM", payload: productData })}>Add to Cart</Button>
                     }
 
