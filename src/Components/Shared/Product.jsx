@@ -1,11 +1,17 @@
 import { Button, Grid, Typography } from '@mui/material';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-
+// icon
+import DeleteIcon from '@mui/icons-material/Delete';
+import AddIcon from '@mui/icons-material/Add';
+import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
 //Function
-import { Shorten } from '../../Helper/Shorten';
+import { Shorten, isInCart, quantityCount } from '../../Helper/Shorten';
 
+// context
+import { CartContext } from '../../Context/CartContextProvider'
 const Product = ({ productData }) => {
+    const { state, dispatch } = useContext(CartContext)
     return (
         <Grid>
             <img src={productData.image} alte="product" width={'200px'} />
@@ -22,7 +28,14 @@ const Product = ({ productData }) => {
                     </Typography>
                 </Link>
                 <Grid>
-                    <Button variant='outlined'>Add to Cart</Button>
+                    {quantityCount(state,productData.id) >1 && <Button variant='outlined' onClick={() => dispatch({ type: 'DECREASE', payload: productData })}><HorizontalRuleIcon/></Button>}
+                    {quantityCount(state,productData.id) === 1 && <Button variant='outlined' onClick={() => dispatch({ type: 'REMOVE_ITEM', payload: productData })}><DeleteIcon/></Button>}
+                    {
+                        isInCart(state, productData.id) ?
+                            <Button variant='outlined' onClick={() => dispatch({ type: "INCREASE", payload: productData })}><AddIcon/></Button> :
+                            <Button variant='outlined' onClick={() => dispatch({ type: "ADD_ITEM", payload: productData })}>Add to Cart</Button>
+                    }
+
                 </Grid>
             </Grid>
         </Grid>

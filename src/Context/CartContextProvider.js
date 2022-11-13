@@ -7,8 +7,9 @@ const initialState = {
     checkout: false
 }
 const cartReducer = (state, action) => {
+    console.log(state);
     switch (action.type) {
-        case 'ADD_ITEM':
+        case "ADD_ITEM":
             if (!state.selectedItems.find(item => item.id === action.payload.id)) {
                 state.selectedItems.push({
                     ...action.payload,
@@ -25,7 +26,7 @@ const cartReducer = (state, action) => {
                 ...state,
                 selectedItems: [...newSelectedItems]
             }
-        case 'INCREASE':
+        case "INCREASE":
             const indexI = state.selectedItems.findIndex(item => item.id === action.payload.id);
             state.selectedItems[indexI].quantity++;
             return {
@@ -55,13 +56,13 @@ const cartReducer = (state, action) => {
             return state;
     }
 }
-export const CartCaontext = createContext()
+export const CartContext = createContext()
 const CartContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(cartReducer, initialState)
     return (
-        <CartCaontext.Provider value={{ state, dispatch }}>
+        <CartContext.Provider value={{ state, dispatch }}>
             {children}
-        </CartCaontext.Provider>
+        </CartContext.Provider>
     );
 };
 
