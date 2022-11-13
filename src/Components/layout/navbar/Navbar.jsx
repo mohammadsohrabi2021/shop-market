@@ -6,9 +6,9 @@ import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Avatar from "@mui/material/Avatar";
-import PersonIcon from "@mui/icons-material/Person";
 import { Link } from "react-router-dom";
 import { Container, Grid } from "@mui/material";
+import image from '../../../assets/image/photo6019226439066435666.jpg'
 // Style
 import styles from "./Navbar.module.css";
 // context
@@ -30,7 +30,7 @@ const Navbar = () => {
           <Toolbar>
 
             <Link to={'/products'}>
-              <Typography variant="h5" component={"h1"}>
+              <Typography variant="h5" component={"h1"} color={'#fff'}>
                 {"Shopify"}
               </Typography>
             </Link>
@@ -44,7 +44,7 @@ const Navbar = () => {
 
               <IconButton>
                 <Avatar>
-                  <PersonIcon />
+                  <img src={image} width={'36px'}/>
                 </Avatar>
               </IconButton>
             </Box>
