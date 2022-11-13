@@ -22,9 +22,9 @@ const ProductDetails = () => {
         <Grid className={styles.container}>
             <img className={styles.image} src={image} alte="product" />
             <Grid className={styles.textContainer}>
-                <Typography variant={'h3'}>{title}</Typography>
-                <Typography variant={'p'} className={styles.description}>{description}</Typography>
-                <Typography variant={'p'} className={styles.description}>Category : {category}</Typography>
+                <h3>{title}</h3>
+                <p className={styles.description}>{description}</p>
+                <p className={styles.description}>Category : {category}</p>
 
                 <Grid className={styles.buttonContainer}>
                     <span className={styles.price}>{price} $</span>
