@@ -9,21 +9,12 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Avatar from "@mui/material/Avatar";
 import PersonIcon from "@mui/icons-material/Person";
 import { Link } from "react-router-dom";
-
+// Style
+import styles from "./Navbar.module.css";
 // context
 import { CartContext } from '../../../Context/CartContextProvider';
 
 import { Container, Grid } from "@mui/material";
-const menuItems = [
-  {
-    title: "فروشگاه",
-    href: "/",
-  },
-  {
-    title: "درباره ما",
-    href: "/about-us",
-  },
-];
 
 const Navbar = () => {
   const { state } = useContext(CartContext)
@@ -44,12 +35,7 @@ const Navbar = () => {
           </Typography>
         </Link>
         <Box display={"flex"} flexGrow={1} justifyContent="end">
-          <IconButton
-            sx={{
-              color: "white",
-              flexBasis: 25,
-            }}
-          >
+          <IconButton className={styles.iconContainer}>
             <Link to={'/Cart'}>
               <ShoppingCartIcon />
             </Link>

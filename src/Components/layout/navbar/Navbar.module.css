@@ -1,0 +1,16 @@
+
+
+
+
+
+
+.iconContainer span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  line-height: 18px;
+  font-size: 0.75rem;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+}
