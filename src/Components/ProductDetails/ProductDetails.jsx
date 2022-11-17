@@ -1,4 +1,4 @@
-import { Grid, Typography } from '@mui/material';
+import { Button, Grid, Typography } from '@mui/material';
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 //context
@@ -19,16 +19,20 @@ const ProductDetails = () => {
     const Product = data[productId - 1];
     const { image, title, description, price, category } = Product;
     return (
-        <Grid className={styles.container}>
-            <img className={styles.image} src={image} alte="product" />
-            <Grid className={styles.textContainer}>
-                <h3>{title}</h3>
-                <p className={styles.description}>{description}</p>
-                <p className={styles.description}>Category : {category}</p>
+        <Grid sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, m: { xs: '3px', sm: '30px', md: '150px 150px 50px' }, justifyContent: 'space-between', alignItems: 'center', }} p={'20px'} border={1} borderColor={'silver'} borderRadius={2}>
+            <img src={image} alte="product" width={'250px'} />
+            <Grid display={'flex'} flexDirection={'column'} p={{xs:'20px 0 0 0',md:'0 0 0 20px'}}>
+                <Typography variant={'h2'} mb={2} fontWeight={'bold'}>{title}</Typography>
+                <Typography mb={3} color={'#3e3e3e'}>{description}</Typography>
+                <Typography mb={3} color={'#3e3e3e'}>Category : {category}</Typography>
 
-                <Grid className={styles.buttonContainer}>
-                    <span className={styles.price}>{price} $</span>
-                    <Link to={'/products'}>Back to Shop</Link>
+                <Grid display={'flex'} justifyContent={'space-between'} >
+                    <Typography sx={{bgcolor:'#34a853',p:'7px 16px',color:'#fff',fontWeight:'bold'}} boxShadow={5} borderRadius={1}>{price} $</Typography>
+                    <Link to={'/products'}>
+                        <Button variant='contained'>
+                            Back to Shop
+                        </Button>
+                    </Link>
                 </Grid>
 
             </Grid>
