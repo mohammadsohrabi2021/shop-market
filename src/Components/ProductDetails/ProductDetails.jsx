@@ -4,8 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 //context
 import { ProductsContext } from '../../Context/ProductContextProvider';
 
-// Style
-import styles from "./ProductDetails.module.css";
+
 
 const ProductDetails = () => {
 

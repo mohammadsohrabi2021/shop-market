@@ -8,8 +8,6 @@ import Cart from '../Shared/Cart';
 import { CartContext } from '../../Context/CartContextProvider';
 import { Link } from 'react-router-dom';
 
-// Style
-import styles from "./ShopCart.module.css";
 
 const ShopCart = () => {
     const { state, dispatch } = useContext(CartContext)
