@@ -14,34 +14,52 @@ import styles from "./ShopCart.module.css";
 const ShopCart = () => {
     const { state, dispatch } = useContext(CartContext)
     return (
-        <Grid className={styles.container}>
-            <Grid className={styles.cartContainer}>
+        <Grid container display={'flex'} justifyContent={'center'} flexDirection={{ xs: 'column', md: 'row' }} xs={12} p={2} gap={1}>
+            <Grid item xs={12} md={8} >
                 {state.selectedItems.map(item => <Cart key={item.id} data={item} />)}
             </Grid>
-            {
-                state.itemsCounter > 0 && <Grid className={styles.payments}>
-                    <p><span>Total Items:</span> {state.itemsCounter}</p>
-                    <p><span>Total Payments:</span> {state.total} $</p>
-                    <Grid className={styles.buttonContainer}>
-                        <Button className={styles.clear} onClick={() => dispatch({ type: "CHECKOUT" })}>Check Out</Button>
-                        <Button className={styles.checkout} onClick={() => dispatch({ type: "CLEAR" })}>Clear</Button>
+            <Grid item xs={12} md={3.5}>
+                {
+                    state.itemsCounter > 0 && <Grid border={1} borderColor={'silver'} borderRadius={2} textAlign={'left'}>
+                        <Grid display={'flex'} gap={2} color={'#3d3d3d'} m={'20px 20px 10px'}><Typography color={'#1a73e8'}>Total Items:</Typography> {state.itemsCounter}</Grid >
+                        <Grid display={'flex'} gap={2} color={'#3d3d3d'} m={'20px 20px 10px'}><Typography color={'#1a73e8'}>Total Payments:</Typography> {state.total} $</Grid >
+                        <Grid item container display={'flex'} justifyContent={'space-between'} alignItems={'center'} p={2}>
+                            <Grid item> <Button variant='outlined' onClick={() => dispatch({ type: "CHECKOUT" })}>Check Out</Button></Grid>
+                            <Grid item> <Button variant='contained' color="success" onClick={() => dispatch({ type: "CLEAR" })}>Clear</Button></Grid>
+                        </Grid>
                     </Grid>
-                </Grid>
-            }
+                }
+            </Grid>
 
-            {
-                state.checkout && <Grid className={styles.complete}>
-                    <Typography variant={'h3'}>Checked Out Successfully</Typography>
-                    <Link to="/products">Buy More</Link>
-                </Grid>
-            }
+            <Grid item xs={12} md={11} >
+                {
+                    state.checkout && <Grid container height={'100px'} display={'flex'} flexDirection={{ xs: 'column', md: 'row' }} justifyContent={{ xs: 'center', md: 'space-between' }} alignItems={{ xs: 'space-between', md: 'center' }}>
+                        <Grid item>
+                            <Typography pb={3} variant={'h3'} color={'#167d32'} fontSize={'1.2rem'}>Checked Out Successfully</Typography>
+                        </Grid>
+                        <Grid item>
+                            <Link to="/products">
+                                <Button variant='contained'>Buy More</Button>
+                            </Link>
+                        </Grid>
+                    </Grid>
+                }
 
-            {
-                !state.checkout && state.itemsCounter === 0 && <Grid className={styles.complete}>
-                    <Typography variant={'h3'}>Want to Buy?</Typography>
-                    <Link to="/products">Go to Shop</Link>
-                </Grid>
-            }
+            </Grid>
+            <Grid item xs={12} md={11}>
+                {
+                    !state.checkout && state.itemsCounter === 0 && <Grid container height={'100px'} display={'flex'} flexDirection={{ xs: 'column', md: 'row' }} justifyContent={{ xs: 'center', md: 'space-between' }} alignItems={{ xs: 'space-between', md: 'center' }}>
+                        <Grid item>
+                            <Typography variant={'h3'} pb={3}>Want to Buy?</Typography>
+                        </Grid>
+                        <Grid item>
+                            <Link to="/products">
+                                <Button variant='contained'>Go to Shop</Button>
+                            </Link>
+                        </Grid>
+                    </Grid>
+                }
+            </Grid>
         </Grid >
     );
 };
