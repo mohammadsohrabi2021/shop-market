@@ -18,7 +18,7 @@ const Cart = (props) => {
 
     const { image, title, price, quantity } = props.data
     return (
-        <Grid className={styles.container}>
+        <Grid className={styles.container} flexDirection={{xs:'column',sm:'row'}}>
             <img className={styles.productImage} src={image} alte="product" width={'200px'} />
             <Grid className={styles.data}>
                 <Typography>
@@ -33,7 +33,7 @@ const Cart = (props) => {
                     {quantity}
                 </Typography>
             </Grid>
-            <Grid className={styles.buttonContainer}>
+            <Grid className={styles.buttonContainer} >
                 {
                     quantity > 1 ?
                         <Button variant='outlined' onClick={() => dispatch({ type: 'DECREASE', payload: props.data })}><HorizontalRuleIcon /></Button>
