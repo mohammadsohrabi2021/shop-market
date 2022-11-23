@@ -1,24 +1,41 @@
-import React, { createContext, useEffect, useState } from 'react';
+import { Grid, CircularProgress } from "@mui/material";
+import React, { createContext, useEffect, useState } from "react";
 // Api
-import { getProducts } from '../Services/Api';
+import { getProducts } from "../Services/Api";
 
-export const ProductsContext = createContext()
+export const ProductsContext = createContext();
 
 const ProductContextProvider = ({ children }) => {
-    const [products, setProducts] = useState([])
-    useEffect(() => {
-        const fetchAPI = async () => {
-            setProducts(await getProducts())
-        }
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-        fetchAPI()
-    }, [])
+  useEffect(() => {
+    const fetchAPI = async () => {
+      setProducts(await getProducts());
+      setLoading(false);
+    };
 
+    fetchAPI();
+  }, []);
+  if (loading) {
     return (
-        <ProductsContext.Provider value={products}>
-            {children}
-        </ProductsContext.Provider>
+      <Grid
+        container
+        item
+        xs={12}
+        alignItems={"center"}
+        justifyContent={"center"}
+        mt={10}
+      >
+        <CircularProgress />
+      </Grid>
     );
+  }
+  return (
+    <ProductsContext.Provider value={products}>
+      {children}
+    </ProductsContext.Provider>
+  );
 };
 
 export { ProductContextProvider };
