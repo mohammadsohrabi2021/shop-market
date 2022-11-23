@@ -7,7 +7,7 @@ import ShopCart from "../Components/ShopCart/ShopCart.jsx";
 const router = createBrowserRouter([
   
     {
-        path: "/",
+        path: "/products",
         element: <Layout />,
         children: [
             {
