@@ -23,7 +23,7 @@ const Product = ({ productData }) => {
                 {Shorten(productData.title)}
             </Typography>
             <Typography>
-                {productData.price}
+                {productData.price} $
             </Typography>
             <Grid className={styles.linkContainer}>
                 <Link to={`/products/${productData.id}`}>

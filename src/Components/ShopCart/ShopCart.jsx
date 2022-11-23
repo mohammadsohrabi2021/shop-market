@@ -22,7 +22,7 @@ const ShopCart = () => {
                         <Grid display={'flex'} gap={2} color={'#3d3d3d'} m={'20px 20px 10px'}><Typography color={'#1a73e8'}>Total Items:</Typography> {state.itemsCounter}</Grid >
                         <Grid display={'flex'} gap={2} color={'#3d3d3d'} m={'20px 20px 10px'}><Typography color={'#1a73e8'}>Total Payments:</Typography> {state.total} $</Grid >
                         <Grid item container display={'flex'} justifyContent={'space-between'} alignItems={'center'} p={2}>
-                            <Grid item> <Button variant='outlined' onClick={() => dispatch({ type: "CHECKOUT" })}>Check Out</Button></Grid>
+                            <Grid item> <Button variant='outlined'  onClick={() => dispatch({ type: "CHECKOUT" })}>Check Out</Button></Grid>
                             <Grid item> <Button variant='contained' color="success" onClick={() => dispatch({ type: "CLEAR" })}>Clear</Button></Grid>
                         </Grid>
                     </Grid>
