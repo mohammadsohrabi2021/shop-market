@@ -120,10 +120,16 @@ export const theme = createTheme({
 
         },
         button: {
-            fontSize: "0.8rem",
-            fontWeight: 400,
-            lineHeight: 1.75,
-            color: '#727272',
+            fontSize: '0.9rem',
+            // backgroundColor: '#1a73e8',
+            border: 'none',
+            color: '#fff',
+            // height: '30px',
+            // width: '120px',
+            borderRadius:' 4px',
+            cursor: 'pointer',
+            transition: 'all 0.2s ease',
+            marginLeft: '5px',
         },
 
     }
