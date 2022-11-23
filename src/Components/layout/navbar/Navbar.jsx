@@ -29,7 +29,7 @@ const Navbar = () => {
         <Container>
           <Toolbar>
 
-            <Link to={'/products'}>
+            <Link to={'/'}>
               <Typography variant="h5" component={"h1"} color={'#fff'}>
                 {"Shopify"}
               </Typography>

@@ -36,7 +36,7 @@ const ShopCart = () => {
                             <Typography pb={3} variant={'h3'} color={'#167d32'} fontSize={'1.2rem'}>Checked Out Successfully</Typography>
                         </Grid>
                         <Grid item>
-                            <Link to="/products">
+                            <Link to="/">
                                 <Button variant='contained'>Buy More</Button>
                             </Link>
                         </Grid>
@@ -51,7 +51,7 @@ const ShopCart = () => {
                             <Typography variant={'h3'} pb={3}>Want to Buy?</Typography>
                         </Grid>
                         <Grid item>
-                            <Link to="/products">
+                            <Link to="/">
                                 <Button variant='contained'>Go to Shop</Button>
                             </Link>
                         </Grid>

@@ -27,7 +27,7 @@ const ProductDetails = () => {
 
                 <Grid display={'flex'} justifyContent={'space-between'} >
                     <Typography sx={{bgcolor:'#34a853',p:'7px 16px',color:'#fff',fontWeight:'bold'}} boxShadow={5} borderRadius={1}>{price} $</Typography>
-                    <Link to={'/products'}>
+                    <Link to={'/'}>
                         <Button variant='contained'>
                             Back to Shop
                         </Button>
