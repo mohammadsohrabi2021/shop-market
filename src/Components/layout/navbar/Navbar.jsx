@@ -34,12 +34,12 @@ const Navbar = () => {
                 {"Shopify"}
               </Typography>
             </Link>
-            <Box display={"flex"} flexGrow={1} justifyContent="end">
+            <Box display={"flex"} flexGrow={1} gap={1} justifyContent="end">
               <IconButton className={styles.iconContainer}>
                 <Link to={'/Cart'}>
-                  <ShoppingCartIcon />
+                  <Typography color="#fff"><ShoppingCartIcon /></Typography>
                 </Link>
-                <span>{state.itemsCounter}</span>
+                <Typography bgcolor={'red'} variant="h3">{state.itemsCounter}</Typography>
               </IconButton>
 
               <IconButton>
