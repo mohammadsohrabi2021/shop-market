@@ -11,9 +11,11 @@ import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
 
 // Style
 import styles from "./Cart.module.css";
-
+//hooke
+import useTitle from "../../Hooks/useTitle";
 const Cart = (props) => {
-
+  useTitle("Cart");
+   
     const { dispatch } = useContext(CartContext)
 
     const { image, title, price, quantity } = props.data
